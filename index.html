@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MiuFa秒翻沙發床</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/jquery.countdown.css">
+    <link rel="shortcut icon" href="img/favicon.ico">
+        
+    <style>
+    
+    *{
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family:微軟正黑體;
+        /* height: 1000px; */
+    }
+
+    /* 顯示電腦隱藏手機 */
+    .com{
+        display: block;
+    }
+    .ph{
+        display: none;
+    }
+
+    /*手機板 navbar */
+    .navbar{
+        
+        /* background-color: #e21860; */
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        font-size: 90%;
+        padding-right: 20%;
+        padding-left: 20%;
+        /* height: 80px; */
+        /* transition-duration: 0.5s; */
+        /* min-width: 1200px; */
+        /* top: 0; */
+    }
+
+    /* 電腦版nav */
+    .navbar-pc{
+    width: 100%;
+    height: 62px;
+    background-color: #EDEDED;
+    /* position: relative; */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition-duration: 0.5s;
+    min-width: 1200px;
+}
+
+
+.LOGO{
+    position: absolute;
+    width: 200px;
+    height: 62px;
+    text-align: center;
+    line-height: 62px;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size:17px;
+    left: 22%;
+    transform: translateX(-50%);
+}
+
+.nav{
+    position: absolute;
+    right: 220px;
+    width:700px;
+    height:22px;
+    bottom: 70px;
+}
+
+#nav{ 
+    width:700px; 
+    margin:50px auto; 
+}
+
+#nav ul{ 
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+#nav li{
+    width:80px; 
+    height:22px; 
+    line-height:22px; 
+    float:left; 
+    overflow:hidden; 
+    text-align:center; 
+}
+
+#nav a{ 
+    width:80px;
+    float:left;
+    overflow:hidden;
+    text-decoration:none;
+    color:rgb(0, 0, 0);
+    font-size: 14px;
+}
+
+.white{
+    background-color: rgba(255, 255, 255, 0.712);
+    transition-duration: 1s;   
+}
+
+    /* 至頂方格 */
+    .box01{
+        width: 100%;
+        height: 62px;
+        color: #EDEDED;
+        
+    }
+
+    /* 形象大圖 */
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color:#000;
+      opacity: 1;
+      background: rgba(0,0,0,0.2);
+    }
+    .swiper-pagination-bullet-active {
+      color:#fff;
+      background: #1e1f20;
+    }
+
+    /* 特色說明 */
+    .features{
+        /* margin-top: 80px; */
+        /* text-align: center; */
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #nowater{
+        position:absolute;
+        right: 23%;
+        top: 21%;
+    }
+
+    /* 限時搶購 */
+    .product{
+        position: relative;
+    }
+
+    .countdownHolder{
+            position: absolute; 
+            width: 50%;
+            right: 25.5%;
+            top: 22%;
+        }
+
+    #buy93{
+        position: absolute;
+        right: 24%;
+        top: 51%;
+    }
+
+    #buy98{
+        position: absolute;
+        right: 24%;
+        top: 76%;
+    }
+    
+
+    /* 使用教學 */
+    .teach{
+        position: relative;
+    }
+
+    #oneperson{
+        position: absolute;
+        right: 23.5%;
+        bottom: 8%;
+    }
+
+    #twoperson{
+        position: absolute;
+        left: 23.5%;
+        top: 20.5%;
+    }
+
+    /* 媒體報導 */
+    .poster{
+        margin: 0 auto;
+    }
+    .video00{
+        margin-left: 23.5%;
+    }
+
+    /* 聯絡我們 */
+    .contact{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 1000;
+    }
+
+
+    /* icon */
+    #FB{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 100px;
+        top: 64%;
+        z-index: 20;
+    }
+
+    #line{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 100px;
+        top: 74%;
+        z-index: 20;
+    }
+
+    #top{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 100px;
+        top: 84%;
+        display: none;
+        z-index: 20;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 顯示手機隱藏電腦 */
+    @media screen and (max-width: 959px){
+        .com{
+            display: none;
+        }
+        .ph{
+            display: block;
+        }
+        
+        .ph_box00{
+            width: 100%;
+            height: 60px;
+        }
+
+    
+        /* 特色說明 */
+        .ph-features{
+            position: relative;
+        }
+        #ph-nowater{
+            position: absolute;
+            right: 6.5%;
+            top: 26.5%;
+        }
+
+        /* 限時搶購 */
+        .ph-product{
+            position: relative;
+        }
+        
+        /* 倒數計時 */
+
+        .ph-countdown-wrapper{ 
+            padding:50px 0px; 
+            position: absolute;
+            top:15%;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .ph-countdown{ 
+            margin:0 auto; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            -moz-border-radius: 4px; 
+            -webkit-border-radius: 4px; 
+            }
+        .ph-timer-holder{ 
+            margin: 0 auto; 
+            text-align: center; 
+            width: 350px; 
+        }
+        .ph-timer-slot{ 
+            width: 20%; 
+            border: 1px solid #ccc; 
+            float: left; 
+            text-align: center; 
+            background-color: rgb(54, 52, 52); 
+            color: #fff; 
+            margin: 5px; 
+            padding: 5px; 
+            border-radius: 4px; 
+            -moz-border-radius: 4px; 
+            -webkit-border-radius: 4px; 
+        }
+        .ph-timer-time{
+            font-family: arial; 
+            font-size: 28px; 
+            }
+        .ph-timer-title{  
+            font-family: arial; 
+            font-size: 13px; 
+            padding: 0px 0px; }
+        .ph-clearfix{ 
+            float:none; 
+            clear: both; 
+            margin-bottom: 0 !important; 
+            }
+            
+
+        /* 售出GIF */
+        #ph-buy93{
+            position: absolute;
+            right: 5%;
+            top: 59%;
+        }
+        #ph-buy98{
+            position: absolute;
+            right: 5%;
+            top: 80%;
+        }
+
+        /* 使用教學 */
+        .ph-teach{
+            position: relative;
+        }
+        #ph-oneperson{
+            position: absolute;
+            left: 7%;
+            top:26%;
+        }
+        #ph-twoperson{
+            position: absolute;
+            right: 6.5%;
+            bottom: 7%;
+        }
+
+         /* 聯絡我們 */
+        .ph-contact{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 1000;
+        }
+
+        
+
+        /* icon */ 
+        #ph_FB{
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            right: 3%;
+            top: 60%;
+            z-index: 20;
+        }
+
+        #ph_line{
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            right: 3%;
+            top: 66%;
+            z-index: 20;
+        }
+
+        #ph_top{
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            right: 3%;
+            top: 72%;
+            display: none;
+            z-index: 20;
+        }
+
+
+
+    }
+
+
+
+
+        
+    </style>
+
+
+</head>
+<body>
+
+
+    <!-- NAV部分 -->
+    <div class="navbar-pc">
+        <a href="https://cheersboy.github.io/miufa/">
+            <div class="LOGO">
+            <img width="50%" src="img/MiuFa-logo.png" alt="">
+            </div>
+        </a>
+        <div class="nav">
+            <ul id="nav">
+                <li>
+                    <a href="#features">
+                        <span>特色說明</span></a>
+                </li>
+                <li>
+                    <a href="#product">
+                        <span>限時搶購</span></a>
+                </li>
+                <li>
+                    <a href="#experience">
+                        <span>消費者見證</span></a>
+                </li>
+                <li>
+                    <a href="#use">
+                        <span>規格說明</span></a>
+                </li>
+                <li>
+                    <a href="#teach">
+                        <span>使用教學</span></a>
+                </li>
+                <li>
+                    <a href="#poster">
+                        <span>媒體報導</span></a>
+                </li>
+                <li>
+                    <a href="#buy">
+                        <span>我要購買</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="com">
+    <!-- 至頂方格 -->
+    <div class="box01" id="box01"></div>
+
+    <!-- 形象大圖 -->
+    <div class="big-image">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <iframe width="100%" height="640" src="https://www.youtube.com/embed/e_7ivbE5zZo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                </div>
+                <div class="swiper-slide">
+                    <img width="100%" src="img/com/雙人01.jpg" alt="">
+                </div>
+                
+            </div>
+        <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="box01" id="box01"> </div>
+
+    <!-- 特色說明 -->
+    <div class="features nav01" id="features">
+        <img class="img01" width="100%" src="img/com/特色說明-03.png" alt="">
+        <img id="nowater" width="25%" src="img/com/防水.gif" alt="">
+    </div>
+
+    <!-- 限時搶購 -->
+    <div class="product" id="product">
+        <img class="img02" src="img/com/限時搶購-04.png" width="100%" alt="">
+
+        <!-- 倒數計時 -->
+        <div id="time">
+        <div id="countdown" class="countdownHolder"></div>
+        </div>
+        <!-- 改日期要從JS改 -->
+        <img id="buy93" width="7%" src="img/93.gif" alt="">
+        <img id="buy98" width="7%" src="img/98.gif" alt="">
+    </div>
+
+    <!-- 消費者見證 -->
+    <div class="experience" id="experience">
+        <img class="img03" src="img/com/部落客使用-18.png" width="100%" alt="">
+    </div>
+
+    <!-- 規格說明 -->
+    <div class="use" id="use">
+        <img class="img04" src="img/com/規格說明-06.png" width="100%" alt="">
+    </div>
+
+    <!-- 使用教學 -->
+    <div class="teach" id="teach">
+        <img class="img05" src="img/com/使用教學-07.png" width="100%" alt="">
+        <img width="34%" id="oneperson" src="img/com/單人.gif" alt="">
+        <img width="34%" id="twoperson" src="img/com/雙人.gif" alt="">
+    </div>
+
+    <!-- 媒體報導 -->
+    <div class="poster" id="poster">
+        <img class="img07" src="img/com/媒體報導-19.png" width="100%" alt="">
+        <div class="video00">
+            <iframe width="34.5%" height="500" src="https://www.youtube.com/embed/aohiiyzNwhE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="34.5%" height="500" src="https://www.youtube.com/embed/e_7ivbE5zZo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <img width="100%" src="img/com/媒體報導-20.png" alt="">
+    </div>
+    
+
+    <!-- 我要購買 -->
+    <div class="buy" id="buy">
+        <img class="img06" src="img/com/我要購買-08.png" width="100%" alt="">
+    </div>
+
+    <!-- 聯絡我們 -->
+    <div class="contact">
+        <img src="img/com/聯絡我們-22.png" width="100%" alt="">
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- icon -->
+
+    <div id="FB">
+        <div class="icon">
+            <a href="https://www.facebook.com/Miufa-%E7%A7%92%E7%BF%BB%E6%B2%99%E7%99%BC%E5%BA%8A-268666917294294/">
+                <img width="35px" height="35px" src="img/fb.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div id="line">
+        <div class="icon">
+            <a href="https://line.me/ti/p/%40rfj3101j">
+                <img width="35px" height="35px" src="img/line.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div id="top">
+        <img width="35px" height="35px" src="img/back to top.png" alt="">
+    </div>
+
+
+</div>
+
+<div class="ph">
+
+    
+
+    <!-- NAV部分 -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(237, 237, 237)">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <a href="https://cheersboy.github.io/miufa/"><img class="logo" width="100 px" src="img/MiuFa-logo.png" alt=""></a> 
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item" id="nav01">
+                        <a class="nav-link" href="#ph_features"> 特色說明 </a>
+                    </li>
+                    <li class="nav-item" id="nav02">
+                        <a class="nav-link" href="#ph_product"> 特賣商品 </a>
+                    </li>
+                    <li class="nav-item" id="nav03">
+                        <a class="nav-link" href="#ph_experience"> 消費者見證 </a>
+                    </li>
+                    <li class="nav-item" id="nav04">
+                        <a class="nav-link" href="#ph_use"> 規格說明 </a>
+                    </li>
+                    <li class="nav-item" id="nav05">
+                        <a class="nav-link" href="#ph_teach"> 使用教學 </a>
+                    </li>
+                    <li class="nav-item" id="nav06">
+                        <a class="nav-link" href="#ph_poster">媒體報導 </a>
+                    </li>
+                    <li class="nav-item" id="nav07">
+                        <a class="nav-link" href="#ph_buy">我要購買 </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ph_box00"></div>
+    <!-- 形象大圖 -->
+    <div class="big-image">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img width="100%" src="img/ph/單人04.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img width="100%" src="img/ph/雙人04.jpg" alt="">
+                </div>
+            </div>
+        <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- 特色說明 -->
+    <div class="ph-features nav01" id="ph_features">
+        <img class="img01" width="100%" src="img/ph/ph特色說明-08.png" alt="">
+        <img id="ph-nowater" width="41%" src="img/ph/防水.gif" alt="">
+    </div>
+
+    <!-- 限時搶購 -->
+    <div class="ph-product" id="ph_product">
+        <img class="img02" src="img/ph/ph限時搶購-09.png" width="100%" alt="">
+
+        <!-- 倒數計時 -->
+        <div class="ph-time">
+
+        <div id="ph-countdown" class="ph-countdown-wrapper" style="display: block;">
+            <div class="ph-countdown">
+              <div class="ph-timer-holder">
+                <div class="ph-timer-slot">
+                  <div id="ph-CountDownDays" class="ph-timer-time"> </div>
+                  <div class="ph-timer-title"> Days </div>
+                </div>
+                <div class="ph-timer-slot">
+                  <div id="ph-CountDownHours" class="ph-timer-time"> </div>
+                  <div class="ph-timer-title"> Hours </div>
+                </div>
+                <div class="ph-timer-slot">
+                  <div id="ph-CountDownMinutes" class="ph-timer-time"> </div>
+                   <div class="ph-timer-title"> Minutes </div>
+                </div>
+                <div class="ph-timer-slot">
+                  <div id="ph-CountDownSeconds" class="ph-timer-time"> </div>
+                  <div class="ph-timer-title"> Seconds </div>
+                </div>
+              </div>
+              <div class="ph-clearfix"></div>
+            </div>
+            </div>
+            
+            <div id="ph-showMsg" style="font-size: 54px; display: none;"> Time Up !!</div>
+
+        </div>
+        <!-- 改日期要從JS改 -->
+
+
+
+
+
+
+        <img id="ph-buy93" width="12%" src="img/93.gif" alt="">
+        <img id="ph-buy98" width="12%" src="img/98.gif" alt="">
+    </div>
+
+    <!-- 消費者見證 -->
+    <div class="ph-experience" id="ph_experience">
+        <img class="img03" src="img/ph/ph部落客使用-10.png" width="100%" alt="">
+    </div>
+
+    <!-- 規格說明 -->
+    <div class="ph-use" id="ph_use">
+        <img class="img04" src="img/ph/ph規格說明-11.png" width="100%" alt="">
+    </div>
+
+    <!-- 使用教學 -->
+    <div class="ph-teach" id="ph_teach">
+        <img class="img05" src="img/ph/ph使用教學-12.png" width="100%" alt="">
+        <img width="55.5%" id="ph-oneperson" src="img/ph/單人.gif" alt="">
+        <img width="55.5%" id="ph-twoperson" src="img/ph/雙人.gif" alt="">
+    </div>
+
+    <!-- 媒體報導 -->
+    <div class="ph-poster" id="ph_poster">
+        <img class="img07" src="img/ph/ph媒體報導-21.png" width="100%" alt="">
+        <div class="video01">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/aohiiyzNwhE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/e_7ivbE5zZo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <img src="img/ph/ph媒體報導-22.png" width="100%" alt="">
+    </div>
+
+    <!-- 我要購買 -->
+    <div class="ph-buy" id="ph_buy">
+        <img class="img06" src="img/ph/ph我要購買-13.png" width="100%" alt="">
+    </div>
+
+
+    <!-- 聯絡我們 -->
+    <div class="ph-contact">
+        <img src="img/ph/ph聯絡我們-20.png" width="100%" alt="">
+    </div>
+
+    
+
+    <!-- top -->
+
+    <div id="ph_FB">
+        <div class="ph_icon">
+            <a href="https://www.facebook.com/Miufa-%E7%A7%92%E7%BF%BB%E6%B2%99%E7%99%BC%E5%BA%8A-268666917294294/">
+                <img width="30px" height="30px" src="img/fb-02.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div id="ph_line">
+        <div class="ph_icon">
+            <a href="https://line.me/ti/p/%40rfj3101j">
+                <img width="30px" height="30px" src="img/line-01.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div id="ph_top">
+            <img width="30px" height="30px" src="img/back to top.png" alt="">
+    </div>
+
+
+    
+    
+
+</div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    
+    
+    <!-- navbar顏色變換 -->
+    <script>
+    
+        $(window).scroll(function () {
+
+        var top = $(window).scrollTop()
+
+        if (top > 62) {
+            $('.navbar-pc').addClass('white');
+        } else {
+            $('.navbar-pc').removeClass('white');
+        }
+        });
+
+    </script>
+
+    <!-- swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            loop: true,
+            renderBullet: function (index, className) {
+              return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+          },
+        });
+    </script>
+
+    <!-- 倒數計時 -->
+    <script>
+    
+    $(function(){
+	
+	var note = $('#note'),
+		ts = new Date(2018, 0, 1),
+		newYear = true;
+	
+	if((new Date()) > ts){
+		// The new year is here! Count towards something else.
+		// Notice the *1000 at the end - time must be in milliseconds
+		ts = (new Date()).getTime() + 31*24*60*60*1000;
+        // 日時分秒 電腦改日期由此更改
+		newYear = false;
+	}
+		
+	$('#countdown').countdown({
+		timestamp	: ts,
+		callback	: function(days, hours, minutes, seconds){
+			
+			var message = "";
+			
+			message += days + " day" + ( days==1 ? '':'s' ) + ", ";
+			message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
+			message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
+			message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
+			
+			if(newYear){
+				message += "left until the new year!";
+			}
+			else {
+				message += "left to 10 days from now!";
+			}
+			
+			note.html(message);
+		}
+	});
+	
+});
+
+    </script>
+
+
+
+    
+    <!-- back to top -->
+
+    <script>
+        $('#top').click(function(){  
+            var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+            $body.animate({
+             scrollTop: 0
+            }, 300);
+           
+            return false;
+            });
+
+        $(window).scroll(function () {
+    
+        var top=$(window).scrollTop()
+
+        if(top > 20){
+            
+            $('#top').fadeIn("slow");
+        }else{
+            $('#top').fadeOut("slow");
+        };
+
+        });
+    </script>
+
+    
+
+    
+
+    <!-- 手機板 -->
+
+    <!-- 倒數計時 -->
+    <script>
+    var dateNow = new Date();
+    var countdown_date = new Date(2018,10-1, 31, 24, 59).getTime();
+var days, hours, minutes, seconds;
+    // 手機改日期由此更改 年 月-1 日 時 分
+
+// update every 1 second
+var timer = setInterval(function () {CountdownTimer()}, 1000);
+function CountdownTimer() {
+  // calculate difference between now and countdown date
+  var current_date = new Date().getTime();
+  var seconds_left = (countdown_date - current_date) / 1000;
+
+  // calculations
+  days = parseInt(seconds_left / 86400);
+  seconds_left = seconds_left % 86400;
+
+  hours = parseInt(seconds_left / 3600);
+  seconds_left = seconds_left % 3600;
+
+  minutes = parseInt(seconds_left / 60);
+  seconds = parseInt(seconds_left % 60);
+
+  document.getElementById("ph-CountDownDays").innerHTML = (days);
+  document.getElementById("ph-CountDownHours").innerHTML = (hours);
+  document.getElementById("ph-CountDownMinutes").innerHTML = (minutes);
+  document.getElementById("ph-CountDownSeconds").innerHTML = (seconds);
+
+  if(seconds_left <= 0)
+  {
+    clearInterval(timer);
+    document.getElementById("ph-showMsg").style.display = "block";
+    document.getElementById("ph-countdown").style.display = "none";
+  }
+}
+
+    </script>
+
+
+
+    <!-- back to top -->
+
+    <script>
+        $('#ph_top').click(function(){  
+            var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+            $body.animate({
+             scrollTop: 0
+            }, 300);
+           
+            return false;
+            });
+
+        $(window).scroll(function () {
+    
+        var top=$(window).scrollTop()
+
+        if(top > 20){
+            
+            $('#ph_top').fadeIn("slow");
+        }else{
+            $('#ph_top').fadeOut("slow");
+        };
+
+        });
+    </script>
+
+
+
+
+
+    
+    
+    
+</body>
+</html>
